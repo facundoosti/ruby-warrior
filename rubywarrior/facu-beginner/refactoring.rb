@@ -83,9 +83,9 @@ class Player
         moving warrior
     end
 
-    def moving warrior
-        return @warrior.rescue! if look_captive? && @warrior.feel.captive?
-        return @warrior.walk!   if look_captive? && !@warrior.feel.captive?
+    def moving
+        return @warrior.rescue! if look_captive? and @warrior.feel.captive?
+        return @warrior.walk!   if look_captive? and !@warrior.feel.captive?
         return @warrior.shoot!  if look_enemy?
         @warrior.walk!
     end
