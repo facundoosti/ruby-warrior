@@ -84,17 +84,17 @@ class Player
     end
 
     def moving
-        return @warrior.rescue! if look_captive? and @warrior.feel.captive?
-        return @warrior.walk!   if look_captive? and !@warrior.feel.captive?
-        return @warrior.shoot!  if look_enemy?
+        return @warrior.rescue! if any_captive? and @warrior.feel.captive?
+        return @warrior.walk!   if any_captive? and !@warrior.feel.captive?
+        return @warrior.shoot!  if any_enemy?
         @warrior.walk!
     end
 
-    def look_enemy?
+    def any_enemy?
         @warrior.look.map(&:enemy?).any?
     end
 
-    def look_captive?
+    def any_captive?
         @warrior.look.map(&:captive?).any?
     end
 end
